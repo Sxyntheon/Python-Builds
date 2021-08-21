@@ -5,7 +5,7 @@ import datetime
 def get_time():
     return datetime.datetime.now()
 
-with open("C:\\Users\jakob\Desktop\Py-Projects\keystroke-text.txt", "r", encoding = "utf8") as text:
+with open("C:\\Users\jakob\Desktop\GitHub\Python-Builds\Keystroke\keystroke-text.txt", "r", encoding = "utf8") as text:
     words = text.read().splitlines()
 
 
