@@ -9,7 +9,8 @@ birthdays = {
     "09-05" : "Mats",
     "10-06" : "Benno",
     "06-09" : "Jamie",
-    "28-08" : "Aaron"
+    "28-08" : "Aaron",
+    "27-05" : "Kilian"
 }
 
 def check_birthday():        #create function to check if birthday was found in dictionary
