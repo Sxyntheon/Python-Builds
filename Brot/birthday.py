@@ -13,6 +13,9 @@ birthdays = {
     "27-05" : "Kilian"
 }
 
+birthdays_string = "Die Geburtstage sind:\nLuis: 05.05\nMats: 09.05\Kilian: 27.05\nBenno: 10.06\nAaron: 28.08\n06.09: Jamie\nSimon: 08.09\nJakob: 22.09\nSascha: 27.09\nTorben: 03.10 "
+
+
 def check_birthday():        #create function to check if birthday was found in dictionary
     today = date.today()
     date_today = today.strftime("%d-%m")
