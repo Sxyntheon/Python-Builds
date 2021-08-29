@@ -39,9 +39,9 @@ async def on_ready():
     print(process_finished)
     if birthday.get_birthday()[0] == True:
         if birthday.get_birthday()[1] == "Jamie":
-            await bot.get_channel(804314475112955936).send("Der Kek " + birthday.get_birthday()[1] + " hat heute Geburtstag")
+            await bot.get_channel(837702077365878787).send("Der Kek " + birthday.get_birthday()[1] + " hat heute Geburtstag")
         else:
-            await bot.get_channel(804314475112955936).send("Der Bruder " + birthday.get_birthday()[1] + " hat heute Geburtstag")
+            await bot.get_channel(837702077365878787).send("Der Bruder " + birthday.get_birthday()[1] + " hat heute Geburtstag")
         print(process_finished)
     else:
         pass

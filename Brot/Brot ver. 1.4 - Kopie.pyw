@@ -4,10 +4,10 @@ import urllib.request
 from datetime import datetime, timedelta
 from time import sleep
 
-import random
+import birthday
+import stundenplan
 
-import packages.birthday as birthday
-import packages.stundenplan as stundenplan
+import random
 
 class colors:
     GREEN = '\033[92m'
@@ -39,9 +39,9 @@ async def on_ready():
     print(process_finished)
     if birthday.get_birthday()[0] == True:
         if birthday.get_birthday()[1] == "Jamie":
-            await bot.get_channel(804314475112955936).send("Der Kek " + birthday.get_birthday()[1] + " hat heute Geburtstag")
+            await bot.get_channel(837702077365878787).send("Der Kek " + birthday.get_birthday()[1] + " hat heute Geburtstag")
         else:
-            await bot.get_channel(804314475112955936).send("Der Bruder " + birthday.get_birthday()[1] + " hat heute Geburtstag")
+            await bot.get_channel(837702077365878787).send("Der Bruder " + birthday.get_birthday()[1] + " hat heute Geburtstag")
         print(process_finished)
     else:
         pass
@@ -70,6 +70,8 @@ while True:
         #    await message.channel.send("Die nächsten Termine sind:\n\n12.05 Studientag\n\n18.05 Auftaktsveranstaltung für die Betriebsralley\n\n26.05 Deutsch LC Gruppe B\n\n28.05 Mathe LC Gruppe B\n\n31.05 Deutsch LC Gruppe A\n\n04.06 Mathe LC Gruppe A\n\n07.06 mündl. Prüfung E Gruppe B\n\n07-12.06 WP1 LC Gruppe B\n\n14.06 mündl. Prüfung E Gruppe A\n\n14-18.06 WP1 LC Gruppe A")
         #elif message.content == "ey ip":
         #    await message.channel.send("Die aktuelle IP lautet: " + MyIP)
+        elif message.content == "ey geburtstage":
+            await message.channel.send(birthday.birtdays_string)
         elif message.content == "ey stundenplan gesamt":
             await message.channel.send(stundenplan.Stundenplan_Gesamt_Content)
         elif message.content == "can i get a oh yeah?":
