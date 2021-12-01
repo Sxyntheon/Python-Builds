@@ -1,26 +1,29 @@
 import discord                  #import libaries
 
-import urllib.request                                
-from datetime import datetime, timedelta
+                               
+from datetime import datetime, timedelta, date
 from time import sleep
 
 import birthday
 import stundenplan
+import ehrenmann_des_tages as edt
 
 import random
+
+date = date.today()
 
 class colors:
     GREEN = '\033[92m'
     ENDCODE = '\033[0m'
 
-names = ["Jakob", "Simon", "Sascha", "Torben", "Luis", "Benno", "Mats", "Kilian", "Aaron"]
+
 schnickschnackschnuck = ["Schere", "Stein", "Papier"]               #define lists for functions
 
 bot = discord.Client()
 
 token = "Nzk5Mjg5MDI5MDE0MzIzMjEw.YABZ6g.SV88jL7T1OJZrhHrddUzTZK3My8"
 
-MyIP = urllib.request.urlopen('https://ident.me').read().decode('utf8')   
+MyIP = "none"   
 
 process_finished = f"{colors.GREEN}✓ Vorgang abgeschlossen{colors.ENDCODE}"
 
@@ -36,12 +39,11 @@ birthday.get_birthday()
 
 @bot.event  	                    #define output when on working state
 async def on_ready():
-    print(process_finished)
-    if stundenplan.weekday == 2:
-        print("Weekday Wednesday: " + f"{colors.GREEN}True{colors.ENDCODE}")
-        await bot.get_channel(804314475112955936).send("Es ist Mittwoch meine Kerle")
-    else:
-        print("Weekday Wednesday: False")
+    #if stundenplan.weekday == 2:
+    #    print("Weekday Wednesday: " + f"{colors.GREEN}True{colors.ENDCODE}")
+    #    await bot.get_channel(804314475112955936).send("Es ist Mittwoch meine Kerle")
+    #else:
+    #    print("Weekday Wednesday: False")
     if birthday.get_birthday()[0] == True:
         if birthday.get_birthday()[1] == "Jamie":
             await bot.get_channel(837702077365878787).send("Der Kek " + birthday.get_birthday()[1] + " hat heute Geburtstag")
@@ -50,6 +52,8 @@ async def on_ready():
         print(process_finished)
     else:
         pass
+    print(process_finished)
+    print("JETZT ONLINE")
     
 while True:
 
@@ -84,10 +88,18 @@ while True:
         elif message.content == "ey send nudes":
             await message.channel.send("https://th.bing.com/th/id/OIP.ruwPbKYdddKFFe6V4HQYNgHaJI?w=151&h=186&c=7&o=5&dpr=1.5&pid=1.7")
         elif message.content == "ey wer ist ehrenbro des tages?":
-            ehrenmann = random.choice(names)
-            await message.channel.send("Und der Ehrenbro des Tages ist:")
-            sleep(5)
-            await message.channel.send(ehrenmann)
+            ehrenmann = edt.check_name(edt.names)
+            if str(ehrenmann) == "error":
+                await message.channel.send("Der Ehrenbro des Tages wurde heute schon bestimmt!")
+                print("error")
+            else:
+                await message.channel.send("Und der Ehrenbro des Tages ist:")
+                print(ehrenmann)
+                sleep(5)
+                log = open("log.txt", "w")
+                log.write(str(date))
+                log.close()
+                await message.channel.send(ehrenmann)
         elif message.content == "ey wer ist der ehrenbro des tages?":
             global ehrenmann_des_tages_cnt
             ehrenmann_des_tages_cnt = 1
@@ -116,10 +128,6 @@ while True:
             await message.channel.send("Du hast 10 Sekunden um deine Antwort zu schreiben")
             sleep(10)
             await message.channel.send(random.choice(schnickschnackschnuck))
-        elif message.content == "ey wer ist ehrenfrau des tages?":
-            await message.channel.send("Und die Ehrenfrau des Tages ist:")
-            sleep(5)
-            await message.channel.send("Ella")
         elif message.content == "ey selbstzerstörung":
             await message.channel.send("Selbst Zerstörung in:")
             await message.channel.send("10")

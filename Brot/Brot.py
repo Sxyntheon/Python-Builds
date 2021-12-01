@@ -1,6 +1,6 @@
 import discord                  #import libaries
 
-import urllib.request                                
+                               
 from datetime import datetime, timedelta
 from time import sleep
 
@@ -20,7 +20,7 @@ bot = discord.Client()
 
 token = "Nzk5Mjg5MDI5MDE0MzIzMjEw.YABZ6g.SV88jL7T1OJZrhHrddUzTZK3My8"
 
-MyIP = urllib.request.urlopen('https://ident.me').read().decode('utf8')   
+MyIP = "none"   
 
 process_finished = f"{colors.GREEN}✓ Vorgang abgeschlossen{colors.ENDCODE}"
 
@@ -36,7 +36,6 @@ birthday.get_birthday()
 
 @bot.event  	                    #define output when on working state
 async def on_ready():
-    print(process_finished)
     if stundenplan.weekday == 2:
         print("Weekday Wednesday: " + f"{colors.GREEN}True{colors.ENDCODE}")
         await bot.get_channel(804314475112955936).send("Es ist Mittwoch meine Kerle")
@@ -50,6 +49,8 @@ async def on_ready():
         print(process_finished)
     else:
         pass
+    print(process_finished)
+    print("JETZT ONLINE")
     
 while True:
 
