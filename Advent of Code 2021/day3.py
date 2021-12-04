@@ -5,6 +5,7 @@ data = []
 for x in numbs:
     data.append(x.strip("\n"))
 
+numbs.close()
 #print(data)
 
 def getBit(data):
