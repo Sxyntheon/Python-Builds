@@ -1,18 +1,31 @@
 input = open("day8.txt", "r")
 
-INPUT = input.split(" ")
+Input = []
+
+for i in input:
+    Input.append(i.strip("\n").split(" | ")[1])
+
+Chars = []
+for line in Input:
+    Chars.append(line.split(" "))
+
 
 count = 0
 
-for i in input:
-    if len(i) == 2:
-        count += 1
-    elif len(i) == 4:
-        count += 1
-    elif len(i) == 3:
-        count += 1
-    elif len(i) == 7:
-        count += 1
+for element in Chars:
+    for chars in element:
+        if len(chars) == 2:
+            count += 1
+            print(chars)
+        elif len(chars) == 4:
+            count += 1
+            print(chars)
+        elif len(chars) == 3:
+            count += 1
+            print(chars)
+        elif len(chars) == 7:
+            count += 1
+            print(chars)
 print(count)
 
         
