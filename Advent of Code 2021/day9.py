@@ -1,5 +1,13 @@
-input = open("day9.txt", "r")
+input = open("GitHub\Python-Builds\Advent of Code 2021\day9.txt", "r")
 
-LINE = input.readlines().split("\n")
+lines = []
 
-print(LINE)
+for line in input:
+    lines.append(line.strip("\n"))
+
+count = 0
+line = []
+for row in lines:
+    
+
+print(line)

@@ -21,7 +21,10 @@ schnickschnackschnuck = ["Schere", "Stein", "Papier"]               #define list
 
 bot = discord.Client()
 
-token = "Nzk5Mjg5MDI5MDE0MzIzMjEw.YABZ6g.SV88jL7T1OJZrhHrddUzTZK3My8"
+tokentxt = open("token.txt", "r")
+token = tokentxt.readline()
+tokentxt.close()
+
 
 MyIP = "none"   
 
